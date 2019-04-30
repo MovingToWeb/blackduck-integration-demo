@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+    - curl -LOk https://blackducksoftware.github.io/hub-detect/hub-detect.sh
+    - hubUrl=$(aws ssm get-parameters --region us-east-1 --names BLACKDUCK_HUB_URL --query Parameters[0].Value)
+    - hubUserName=$(aws ssm get-parameters --region us-east-1 --names BLACKDUCK_HUB_USERNAME --query Parameters[0].Value)
+    - hubPassword=$(aws ssm get-parameters --region us-east-1 --names BLACKDUCK_HUB_PASSWORD --with-decryption --query Parameters[0].Value)
+  build:
+    commands:
+    - mvn clean package
+  post_build:
+    commands:
+    - bash hub-detect.sh --blackduck.hub.url=$hubUrl --blackduck.hub.username=$hubUserName --blackduck.hub.password=$hubPassword --detect.risk.report.pdf=true
+
+artifacts:
+  files:
+  - target/blackduck-integration-demo-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
