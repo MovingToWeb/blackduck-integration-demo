@@ -17,4 +17,5 @@ phases:
 artifacts:
   files:
   - target/blackduck-integration-demo-0.0.1-SNAPSHOT.jar
+  - cftemplate-ec2-s3.json
   discard-paths: yes
