@@ -23,5 +23,5 @@ artifacts:
   - scripts/change_permissions.sh
   - scripts/install_dependencies.sh
   - scripts/start_server.sh
-#  - scripts/stop_server.sh
+  - scripts/stop_server.sh
   discard-paths: no
