@@ -16,7 +16,7 @@ hooks:
   - location: scripts/start_server.sh
 #  - location: scripts/create_test_db.sh
     timeout: 300
-    runas: ec2-user
+    runas: root
 #  ApplicationStop:
 #  - location: scripts/stop_server.sh
 #    timeout: 300
