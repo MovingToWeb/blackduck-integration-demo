@@ -1,2 +1,4 @@
 #!/bin/bash
-kill $(cat /deployment/pid.file)
+pkill $(cat /deployment/pid.file)
+
+echo "Killed process at: "$(cat /deployment/pid.file)
