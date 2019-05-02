@@ -12,6 +12,7 @@ phases:
     - mvn clean package
   post_build:
     commands:
+    - mvn sonar:sonar -Dsonar.host.url=http://ec2-13-58-15-69.us-east-2.compute.amazonaws.com:9000
     - cp target/blackduck-integration-demo-*.jar target/blackduck-integration-demo.jar
 
 artifacts:
