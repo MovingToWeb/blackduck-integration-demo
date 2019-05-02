@@ -493,6 +493,9 @@
             "Ref": "InstanceSecurityGroup"
           }
         ],
+        "IamInstanceProfile": {
+          "Ref": "DeployS3BucketsInstanceProfile"
+        },
         "KeyName": {
           "Ref": "KeyName"
         },
@@ -559,6 +562,62 @@
       "DependsOn": [
         "EC2Instance"
       ]
+    },
+    "DeployS3BucketsInstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Path": "/",
+        "Roles": [
+          {
+            "Ref": "DeployS3BucketsRole"
+          }
+        ]
+      }
+    },
+    "DeployS3BucketsPolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "DeployS3BucketsPolicy",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:Get*",
+                "s3:List*"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "DeployS3BucketsRole"
+          }
+        ]
+      }
+    },
+    "DeployS3BucketsRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/"
+      }
     }
   },
   "Outputs": {
