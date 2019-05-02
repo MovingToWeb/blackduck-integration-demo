@@ -20,4 +20,4 @@ artifacts:
   - cftemplate-ec2-s3.json
   - appspec.yml
   - scripts/
-  discard-paths: yes
+  discard-paths: no

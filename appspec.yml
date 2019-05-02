@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-- source: ./blackduck-integration-demo.jar
+- source: target/blackduck-integration-demo.jar
   destination: /deployment
 hooks:
   BeforeInstall:
