@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar /deployment/blackduck-integration-demp.jar & echo $! > /deployment/pid.file &
+java -jar /deployment/blackduck-integration-demo.jar & echo $! > /deployment/pid.file &
