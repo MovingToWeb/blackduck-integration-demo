@@ -10,13 +10,14 @@ phases:
   build:
     commands:
     - mvn clean package
-#  post_build:
-#    commands:
-#    - bash hub-detect.sh --blackduck.hub.url=$hubUrl --blackduck.hub.username=$hubUserName --blackduck.hub.password=$hubPassword --detect.risk.report.pdf=true
+  post_build:
+    commands:
+    - cp target/blackduck-integration-demo-*.jar target/blackduck-integration-demo.jar
 
 artifacts:
   files:
-  - target/blackduck-integration-demo-0.0.1-SNAPSHOT.jar
+  - target/blackduck-integration-demo.jar
   - cftemplate-ec2-s3.json
   - appspec.yml
+  - scripts/
   discard-paths: yes
