@@ -19,5 +19,8 @@ artifacts:
   - target/blackduck-integration-demo.jar
   - cftemplate-ec2-s3.json
   - appspec.yml
-  - scripts/*
+  - scripts/change_permissions.sh
+  - scripts/install_dependencies.sh
+  - scripts/start_server.sh
+  - scripts/stop_server.sh
   discard-paths: no
