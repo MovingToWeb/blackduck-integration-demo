@@ -485,6 +485,12 @@
     "EC2Instance": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
+        "Tags" : [
+          {
+            "Key" : "name",
+            "Value" : "cicd-native-ws"
+          }
+        ],
         "InstanceType": {
           "Ref": "InstanceType"
         },
