@@ -485,6 +485,7 @@
     "EC2Instance": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
+        "SubnetId": "subnet-13e1d77b",
         "Tags" : [
           {
             "Key" : "name",
@@ -545,6 +546,7 @@
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
         "GroupDescription": "Enable SSH access via port 22",
+        "VpcId": "vpc-083f3160",
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
